@@ -60,7 +60,7 @@ cp .env.example .env
 and add your environment variables.
 
 > **Note**  
-> You should at least set a valid Ethereum URL (e.g. Infura) and a private key with some ethers.
+> You should at least set a valid Ethereum URL (e.g. Infura) and a private key (wallet used for deploying new contract) with some ethers.
 
 ### Deploy the contract
 
@@ -76,18 +76,18 @@ yarn deploy --semaphore <semaphore-address> --group <group-id> --network goerli
 
 4. Copy your contract artifacts from `apps/contracts/build/contracts/contracts` folder to `apps/subgraph/contract-artifacts` and `apps/web-app/contract-artifacts` folders manually. Or run `yarn copy:contract-artifacts` in the project root to do it automatically.
 
-5. Deploy the subgraph again.
+5. Deploy the subgraph again if you only want data indexed for your own contract. (TODO: To be confirmed)
 
 > **Note**  
-> Check the Semaphore contract addresses [here](https://semaphore.appliedzkp.org/docs/deployed-contracts).
+> Check the most updated Semaphore contract addresses [here](https://semaphore.appliedzkp.org/docs/deployed-contracts).
 
 > **Warning**  
-> The group id is a number!
+> The group id is a number! if error is returned at compile time try changing it to a different number
 
-### Deploy the subgraph
+### Deploying your own subgraph
 
 1. Go to the `apps/subgraph` directory and update the `subgraph.yaml` file by setting your contract address.
-2. Authenticate the account with your access token:
+2. Authenticate the account with your access token from The Graph:
 
 ```bash
 yarn auth <access-token>
